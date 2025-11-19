@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Pest\Support\View;
 
 class AuthController extends Controller
 {
@@ -11,6 +12,12 @@ class AuthController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+    // menampilkan halaman register
+    public function showRegisterForm()
+    {
+        return view('auth.register');
     }
 
     // Proses login

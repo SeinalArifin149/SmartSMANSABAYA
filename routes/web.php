@@ -18,9 +18,11 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // (opsional) halaman register dan lupa password
-Route::get('/register', function() {
-    return 'Halaman register belum dibuat';
-})->name('register');
+// Route::get('/register', function() {
+//     return 'Halaman register belum dibuat';
+// })->name('register');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 
 Route::get('/forgot-password', function() {
     return 'Halaman reset password belum dibuat';

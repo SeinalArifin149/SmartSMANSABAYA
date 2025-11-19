@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar - Smart SMAN Sabayang</title>
+    
     {{-- Load Tailwind dari Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -63,8 +64,7 @@
                 padding-top: 15vh;
             }
         }
-    </style>    
-
+    </style>   
 </head>
 
 <body class="bg-white">
@@ -74,8 +74,8 @@
         <div class="w-full max-w-sm sm:max-w-md">
             <x-animation-area />
 
-            <!-- Login Form -->
-            <form action="{{ route('login') }}" method="POST" class="space-y-4 mt-8">
+            <!-- Register Form -->
+            <form action="{{ route('register') }}" method="POST" class="space-y-4 mt-8">
                 @csrf
                 
                 <!-- Email Input -->
@@ -84,6 +84,28 @@
                         type="email" 
                         name="email" 
                         placeholder="Email" 
+                        class="w-full px-4 py-3 bg-gray-100 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 text-sm sm:text-base"
+                        required
+                    >
+                </div>
+
+                <!-- NIS Input -->
+                <div>
+                    <input 
+                        type="number" 
+                        name="NIS" 
+                        placeholder="Nomor Induk Siswa" 
+                        class="w-full px-4 py-3 bg-gray-100 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 text-sm sm:text-base"
+                        required
+                    >
+                </div>
+
+                <!-- Nomor Telepon Input -->
+                <div>
+                    <input 
+                        type="tel" 
+                        name="no_telp" 
+                        placeholder="Nomor Telepon Aktif" 
                         class="w-full px-4 py-3 bg-gray-100 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 text-sm sm:text-base"
                         required
                     >
@@ -100,32 +122,42 @@
                     >
                 </div>
 
-                <!-- Forgot Password & Reset Link -->
+                <!-- Confirm Password Input -->
+                <div>
+                    <input 
+                        type="password" 
+                        name="password_confirmation" 
+                        placeholder="Konfirmasi Password" 
+                        class="w-full px-4 py-3 bg-gray-100 rounded-xl border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700 text-sm sm:text-base"
+                        required
+                    >
+                </div>
+
+                <!-- Info atau Reset Link -->
                 <div class="text-center space-y-1">
                     <p class="text-gray-400 text-xs sm:text-sm">atau</p>
                     <a href="{{ route('password.request') }}" class="text-blue-500 text-xs sm:text-sm">Reset akun lain?</a>
                 </div>
 
-                <!-- Login Button -->
+                <!-- Register Button -->
                 <button 
                     type="submit" 
                     class="w-full gradient-purple text-white font-semibold py-3 rounded-full hover:opacity-90 transition-opacity mt-6 text-sm sm:text-base"
                 >
-                    Masuk
+                    Daftar
                 </button>
 
-                <!-- Register Link -->
+                <!-- Login Link -->
                 <button 
                     type="button"
-                    onclick="window.location.href='{{ route('register') }}'"
+                    onclick="window.location.href='{{ route('login') }}'"
                     class="w-full bg-white border-2 border-purple-500 text-purple-500 font-semibold py-3 rounded-full hover:bg-purple-50 transition-colors text-sm sm:text-base"
                 >
-                    Belum ada akun? Daftar dulu
+                    Sudah ada Akun? Masuk
                 </button>
             </form>
 
         </div>
     </div> 
 </body>
-
 </html>
